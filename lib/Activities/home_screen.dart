@@ -1,5 +1,8 @@
+import 'package:coffee_shope_ui/Resources/resources_list_screen.dart';
 import 'package:coffee_shope_ui/Widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
+
+import 'details_secreen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -55,14 +58,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: TextFormField(
                 enabled: false,
                 decoration: InputDecoration(
-                  prefix: Icon(Icons.coffee,
-                  color: Colors.white.withOpacity(.3),
+                  prefix: Icon(
+                    Icons.coffee,
+                    color: Colors.white.withOpacity(.3),
                   ),
                   border: InputBorder.none,
                   hintText: "Find Your Coffee...",
                   hintStyle: TextStyle(
                     color: Colors.white.withOpacity(.3),
-                    fontSize: 12,),
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ),
@@ -74,17 +79,49 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: ListView.builder(
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context,index){
+                  itemBuilder: (context, index) {
                     return GestureDetector(
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
-                          ''
+                          names[index],
+                          style: TextStyle(
+                            color: category[index]
+                                ? Colors.orange
+                                : Colors.white.withOpacity(.4),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     );
-              }),
+                  }),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 250,
+                    width: double.infinity,
+                    child: ListView.builder(
+                      itemCount: 9,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context,index){
+                      return InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(index)));
+                        },
+                      );
+                    }),
+                  ),
+                ],
+              ),
+            ))
           ],
         ),
       ),
