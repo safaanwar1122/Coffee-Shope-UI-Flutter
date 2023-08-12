@@ -106,19 +106,158 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 250,
+                    height: 230,
                     width: double.infinity,
                     child: ListView.builder(
-                      itemCount: 9,
+                        itemCount: 9,
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (context,index){
-                      return InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(index)));
-                        },
-                      );
-                    }),
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailScreen(index)));
+                            },
+                            child: Card(
+                              elevation: 20,
+                              color: Colors.white.withOpacity(.1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              margin: EdgeInsets.only(right: 20),
+                              child: Container(
+                                padding: EdgeInsets.all(15),
+                                width: 155,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: SizedBox(
+                                        height: 120,
+                                        width: double.infinity,
+                                        child: Stack(
+                                          children: [
+                                            Positioned.fill(
+                                              child: Image(
+                                                image: images[index],
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: Alignment.topRight,
+                                              child: Container(
+                                                height: 25,
+                                                width: 50,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.black
+                                                        .withOpacity(.7),
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(10),
+                                                    )),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.star,
+                                                      color: Colors.orange,
+                                                      size: 14,
+                                                    ),
+                                                    Text(
+                                                      ratting[index].toString(),
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      names[index],
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      with_[index],
+                                      style: TextStyle(
+                                        color: Colors.white.withOpacity(.5),
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            "\$ ",
+                                            style: TextStyle(
+                                                color: Colors.orange,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Text(
+                                          prices[index],
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 10,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text("Special offer ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  specialCard(images[5]),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  specialCard(images[6]),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  specialCard(images[7]),
                 ],
               ),
             ))
