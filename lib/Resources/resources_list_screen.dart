@@ -6,6 +6,10 @@ var category = [
   false,
   false,
   false,
+  false,
+  false,
+  false,
+  false,
 ];
 var images = [
   const AssetImage("images/p1.jpeg"),

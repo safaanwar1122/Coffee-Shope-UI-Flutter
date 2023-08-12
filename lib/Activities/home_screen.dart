@@ -42,10 +42,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   letterSpacing: 2,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 25),
+                  fontSize: 23),
             ),
             const SizedBox(
-              height: 25,
+              height: 20,
             ),
             Container(
               padding: EdgeInsets.only(left: 20),
@@ -72,12 +72,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             const SizedBox(
-              height: 25,
+              height: 20,
             ),
             SizedBox(
               height: 30,
               child: ListView.builder(
-                  itemCount: 5,
+                  itemCount: 9,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return GestureDetector(
