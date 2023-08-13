@@ -2,7 +2,7 @@ import 'package:coffee_shope_ui/Resources/resources_list_screen.dart';
 import 'package:coffee_shope_ui/Widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
-import 'details_secreen.dart';
+import 'details_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
