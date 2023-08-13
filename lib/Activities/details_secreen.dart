@@ -203,7 +203,63 @@ class _DetailScreenState extends State<DetailScreen> {
                                           ),
                                         ),
                                       ),
+                                      SizedBox(
+                                        width: 15,
+                                      ),
+                                      Container(
+                                        height: 60,
+                                        width: 60,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Icon(
+                                                Icons.water_drop_rounded,
+                                                color: Colors.orange,
+                                              ),
+                                              Text(
+                                                "Milk",
+                                                style: TextStyle(
+                                                  color: Colors.white
+                                                      .withOpacity(.5),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                     ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    height: 40,
+                                    width: 140,
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Center(
+                                      child: Text(
+                                        s
+                                            ? "Small Roasted"
+                                            : m
+                                                ? "Medium Roasted"
+                                                : "Large Roasted",
+                                        style: TextStyle(
+                                          color: Colors.white.withOpacity(.5),
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -213,6 +269,84 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ],
                   ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                margin: EdgeInsets.only(top: 20, left: 20, right: 30),
+                height: double.infinity,
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Description",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(.5),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "A cappuccino is the perfect balance of espresso, steamed milk. This coffee is all about the structure.",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Size",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(.5),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    s=true;
+                                    m=false;
+                                    l=false;
+                                    setState(() {
+
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: 110,
+                                    decoration: BoxDecoration(
+                                      color: s?Colors.black:Colors.white.withOpacity(.1),
+                                      
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  ],
                 ),
               ),
             ),
