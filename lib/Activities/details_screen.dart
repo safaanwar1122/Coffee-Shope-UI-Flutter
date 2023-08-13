@@ -2,7 +2,6 @@ import 'package:coffee_shope_ui/Activities/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../Resources/resources_list_screen.dart';
-import 'bill_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final int index;
@@ -533,7 +532,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             ],
                           ),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               showAlertDialog();
                             },
                             child: Container(
@@ -563,6 +562,7 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
     );
   }
+
   void showAlertDialog() {
     showDialog(
         context: context,
@@ -576,18 +576,31 @@ class _DetailScreenState extends State<DetailScreen> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text('No')),
+                  child: const Text('Cancel order')),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Colors.green),
                   onPressed: () {
-Navigator.push(context, MaterialPageRoute(builder: (context)=>BillScreen()));
-
+                    thankingDoalogAlert();
                   },
                   child: const Text(
-                    'Yes',
+                    'Place Order',
                   )),
             ],
           );
         });
+
   }
+void  thankingDoalogAlert(){
+
+  showDialog(context: context,
+    builder: (BuildContext context){
+    return AlertDialog(
+      title: Text("Thank you for visiting !"),
+    );
+    }
+
+  );
+
+  }
+
 }
