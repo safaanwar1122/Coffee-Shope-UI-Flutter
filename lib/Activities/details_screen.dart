@@ -1,3 +1,4 @@
+import 'package:coffee_shope_ui/Activities/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../Resources/resources_list_screen.dart';
@@ -11,7 +12,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-
   var s = true;
   var m = false;
   var l = false;
@@ -34,16 +34,19 @@ class _DetailScreenState extends State<DetailScreen> {
                     width: double.infinity,
                     child: Stack(
                       children: [
-                        Positioned.fill(child: Image(image: images[widget.index],fit: BoxFit.cover,)),
+                        Positioned.fill(
+                            child: Image(
+                          image: images[widget.index],
+                          fit: BoxFit.cover,
+                        )),
                         Align(
                           alignment: Alignment.topLeft,
                           child: Container(
-                            margin:
-                            const EdgeInsets.only(top: 50, left: 20, right: 20),
+                            margin: const EdgeInsets.only(
+                                top: 50, left: 20, right: 20),
                             width: double.infinity,
                             child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
                                   height: 40,
@@ -52,9 +55,18 @@ class _DetailScreenState extends State<DetailScreen> {
                                     color: Colors.black,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: Icon(
-                                    Icons.arrow_back_ios_outlined,
-                                    color: Colors.white.withOpacity(.5),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  HomePage()));
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_back_ios_outlined,
+                                      color: Colors.white.withOpacity(.5),
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -64,11 +76,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                       color: Colors.black,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: const Icon(
-                                        Icons.favorite,
-                                        color: Colors.orange
-                                    )
-                                )
+                                    child: const Icon(Icons.favorite,
+                                        color: Colors.orange))
                               ],
                             ),
                           ),
@@ -87,16 +96,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                       topRight: Radius.circular(50))),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Column(
                                     children: [
                                       Column(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             names[widget.index],
@@ -105,7 +114,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold,
                                                 decoration:
-                                                TextDecoration.none),
+                                                    TextDecoration.none),
                                           ),
                                           const SizedBox(
                                             height: 2,
@@ -116,7 +125,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                                   color: Colors.white
                                                       .withOpacity(.5),
                                                   decoration:
-                                                  TextDecoration.none)),
+                                                      TextDecoration.none)),
                                           const SizedBox(
                                             height: 10,
                                           ),
@@ -132,14 +141,14 @@ class _DetailScreenState extends State<DetailScreen> {
                                               Text(
                                                 s
                                                     ? ratting[widget.index]
-                                                    .toString()
+                                                        .toString()
                                                     : m
-                                                    ? mediumRating[
-                                                widget.index]
-                                                    .toString()
-                                                    : largeRating[
-                                                widget.index]
-                                                    .toString(),
+                                                        ? mediumRating[
+                                                                widget.index]
+                                                            .toString()
+                                                        : largeRating[
+                                                                widget.index]
+                                                            .toString(),
                                                 style: const TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold,
@@ -153,10 +162,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                                 s
                                                     ? prefix[widget.index]
                                                     : m
-                                                    ? prefixMedium[
-                                                widget.index]
-                                                    : prefixLarge[
-                                                widget.index],
+                                                        ? prefixMedium[
+                                                            widget.index]
+                                                        : prefixLarge[
+                                                            widget.index],
                                                 style: TextStyle(
                                                   color: Colors.white
                                                       .withOpacity(.5),
@@ -180,15 +189,15 @@ class _DetailScreenState extends State<DetailScreen> {
                                             decoration: BoxDecoration(
                                               color: Colors.black,
                                               borderRadius:
-                                              BorderRadius.circular(10),
+                                                  BorderRadius.circular(10),
                                             ),
                                             child: Padding(
                                               padding:
-                                              const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                               child: Column(
                                                 mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   const Icon(
                                                     Icons.coffee,
@@ -200,7 +209,6 @@ class _DetailScreenState extends State<DetailScreen> {
                                                       fontSize: 10,
                                                       color: Colors.white
                                                           .withOpacity(.5),
-
                                                     ),
                                                   )
                                                 ],
@@ -216,15 +224,15 @@ class _DetailScreenState extends State<DetailScreen> {
                                             decoration: BoxDecoration(
                                               color: Colors.black,
                                               borderRadius:
-                                              BorderRadius.circular(10),
+                                                  BorderRadius.circular(10),
                                             ),
                                             child: Padding(
                                               padding:
-                                              const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(8.0),
                                               child: Column(
                                                 mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   const Icon(
                                                     Icons.water_drop_rounded,
@@ -252,14 +260,14 @@ class _DetailScreenState extends State<DetailScreen> {
                                         decoration: BoxDecoration(
                                             color: Colors.black,
                                             borderRadius:
-                                            BorderRadius.circular(10)),
+                                                BorderRadius.circular(10)),
                                         child: Center(
                                           child: Text(
                                             s
                                                 ? "Small Roasted"
                                                 : m
-                                                ? "Medium Roasted"
-                                                : "Large Roasted",
+                                                    ? "Medium Roasted"
+                                                    : "Large Roasted",
                                             style: TextStyle(
                                                 color: Colors.white
                                                     .withOpacity(.5),
@@ -324,7 +332,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               margin: const EdgeInsets.only(top: 10),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   InkWell(
                                     onTap: () {
@@ -339,10 +347,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                       decoration: BoxDecoration(
                                           color: s
                                               ? Colors.black
-                                              : Colors.white
-                                              .withOpacity(.1),
+                                              : Colors.white.withOpacity(.1),
                                           borderRadius:
-                                          BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                           border: Border(
                                               right: BorderSide(
                                                   color: s
@@ -367,10 +374,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                               color: s
                                                   ? Colors.orange
                                                   : Colors.white
-                                                  .withOpacity(.8),
+                                                      .withOpacity(.8),
                                               fontSize: 15,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                     ),
@@ -388,10 +394,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                       decoration: BoxDecoration(
                                           color: m
                                               ? Colors.black
-                                              : Colors.white
-                                              .withOpacity(.1),
+                                              : Colors.white.withOpacity(.1),
                                           borderRadius:
-                                          BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                           border: Border(
                                               right: BorderSide(
                                                   color: m
@@ -416,10 +421,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                               color: m
                                                   ? Colors.orange
                                                   : Colors.white
-                                                  .withOpacity(.8),
+                                                      .withOpacity(.8),
                                               fontSize: 15,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                     ),
@@ -437,10 +441,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                       decoration: BoxDecoration(
                                           color: l
                                               ? Colors.black
-                                              : Colors.white
-                                              .withOpacity(.1),
+                                              : Colors.white.withOpacity(.1),
                                           borderRadius:
-                                          BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                           border: Border(
                                               right: BorderSide(
                                                   color: l
@@ -465,10 +468,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                               color: l
                                                   ? Colors.orange
                                                   : Colors.white
-                                                  .withOpacity(.8),
+                                                      .withOpacity(.8),
                                               fontSize: 15,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                     ),
@@ -481,71 +483,72 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       Expanded(
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const SizedBox(
+                            width: 0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const SizedBox(width: 0,),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              Text(
+                                "Price",
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(.6),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Row(
                                 children: [
-                                  Text(
-                                    "Price",
+                                  const Text(
+                                    "\$",
                                     style: TextStyle(
-                                      color: Colors.white.withOpacity(.6),
+                                        color: Colors.orange,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    s
+                                        ? prices[widget.index]
+                                        : m
+                                            ? mediumPrice[widget.index]
+                                            : largePrice[widget.index],
+                                    style: const TextStyle(
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Text(
-                                        "\$",
-                                        style: TextStyle(
-                                            color: Colors.orange,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        s
-                                            ? prices[widget.index]
-                                            : m
-                                            ? mediumPrice[widget.index]
-                                            : largePrice[widget.index],
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  )
                                 ],
-                              ),
-                              Container(
-                                height: 40,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    borderRadius:
-                                    BorderRadius.circular(20)),
-                                child: const Center(
-                                  child: Text(
-                                    "Buy Now",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
                               )
                             ],
-                          ))
+                          ),
+                          Container(
+                            height: 40,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: const Center(
+                              child: Text(
+                                "Buy Now",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          )
+                        ],
+                      ))
                     ],
                   ),
                 )),
@@ -554,5 +557,4 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
     );
   }
-
 }
