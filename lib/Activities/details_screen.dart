@@ -2,6 +2,7 @@ import 'package:coffee_shope_ui/Activities/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../Resources/resources_list_screen.dart';
+import 'bill_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final int index;
@@ -531,19 +532,24 @@ class _DetailScreenState extends State<DetailScreen> {
                               )
                             ],
                           ),
-                          Container(
-                            height: 40,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                color: Colors.orange,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: const Center(
-                              child: Text(
-                                "Buy Now",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
+                          InkWell(
+                            onTap: (){
+                              showAlertDialog();
+                            },
+                            child: Container(
+                              height: 40,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  color: Colors.orange,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Center(
+                                child: Text(
+                                  "Order",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           )
@@ -556,5 +562,32 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
       ),
     );
+  }
+  void showAlertDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Bill'),
+            content: const Text('Are you sure you want to place this order? '),
+            actions: [
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('No')),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  onPressed: () {
+Navigator.push(context, MaterialPageRoute(builder: (context)=>BillScreen()));
+
+                  },
+                  child: const Text(
+                    'Yes',
+                  )),
+            ],
+          );
+        });
   }
 }
